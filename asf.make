@@ -4,7 +4,13 @@
 # To use this, just include this file in your makefile and specify the required
 # asf parts as dependency. On first run (or after deleting the .asf.location
 # file) you will be asked for the path to the asf root directory!
+
+
+
+
 # -----------------------------------------------------------------------------
+
+
 
 
 # Check if there is already an asf location provided. If not, ask for the
@@ -26,19 +32,55 @@ $(shell [ -f $(LOCATION_FILE) ] && rm $(LOCATION_FILE))
 $(error Given location of Atmel Software Framework is not a directory)
 endif
 
+
+
+
+# Use the information target as default target (for this makefile) and make it
+# phony so it is always run.
 .PHONY: asf-information
 asf-information:
 	@echo "Using asf.make with asf @ $(LOCATION)"
 
+
+
+
+# -----------------------------------------------------------------------------
+
+
+
+
+# Recipe to build the asf library. The resulting (static) library will be
+# placed to the top of the build directory and will be called "asf.a"
+# The rule has no prerequisites defined here, they need to be defined by the
+# including makefile. This way one can specify which parts of the asf are
+# needed.
 asf-lib:
 	@echo "Building asf library with:"
 	@for i in $^;do echo "  * $$i";done
 
+
+
+
+# -----------------------------------------------------------------------------
+
+
+
+
+# Rule to build gpio lib.
+asf_gpio_files := avr32/drivers/gpio/gpio.c
+# TODO: convert source to object file names, add LOCATION, builddirectory
 asf-gpio:
 	@echo "Building $@"
 
 asf-usart:
 	@echo "Building $@"
+
+
+
+
+# -----------------------------------------------------------------------------
+
+
 
 
 # To use it:
