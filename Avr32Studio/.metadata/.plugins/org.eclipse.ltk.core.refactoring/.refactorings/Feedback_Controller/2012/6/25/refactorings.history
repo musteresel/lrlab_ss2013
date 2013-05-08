@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Feedback_Controller/src/usart.h&apos; to &apos;usart_interface.h&apos;" description="Rename resource &apos;usart.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/usart.h" name="usart_interface.h" stamp="1340366372328" updateReferences="true"/>
+</session>

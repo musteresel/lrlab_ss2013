@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="com.atmel.avr32.tool.batchisp.ProgramDialogComposite.2">
+		<item value="E:\Avr32Studio\ControlSystemII\Debug\ControlSystemII.elf" key="filepath"/>
+		<item value="true" key="unlock"/>
+		<item value="true" key="start"/>
+		<item value="true" key="erase"/>
+		<item value="true" key="verify"/>
+		<item value="true" key="fullLength"/>
+		<item value="" key="length"/>
+		<item value="true" key="reset"/>
+		<item value="0x0" key="offset"/>
+	</section>
+	<section name="SelectedDevices">
+		<list key="LastUsed">
+			<item value="UC3A0512"/>
+			<item value="UC3A0512"/>
+		</list>
+	</section>
+</section>
