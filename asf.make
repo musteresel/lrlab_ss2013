@@ -59,6 +59,7 @@ ASF_INCLUDE_PATHS := $(shell find $(LOCATION)/./*/boards -maxdepth 1 -type d) \
 	$(shell find $(LOCATION)/./*/components -mindepth 1 -maxdepth 2 -path '*doxygen*' -prune -o -type d -print) \
 	$(shell find $(LOCATION)/./*/utils -mindepth 1 -maxdepth 1 -type d) \
 	$(shell find $(LOCATION)/./*/services -mindepth 1 -maxdepth 2 -type d)
+ASF_INCLUDE_PATHS := $(addprefix -I,$(ASF_INCLUDE_PATHS))
 
 
 
@@ -75,8 +76,6 @@ ASF_INCLUDE_PATHS := $(shell find $(LOCATION)/./*/boards -maxdepth 1 -type d) \
 asf-lib:
 	@echo "Building asf library with:"
 	@for i in $^;do echo "  * $$i";done
-	@echo "Include paths:"
-	@for p in $(ASF_INCLUDE_PATHS);do echo "  $$p";done
 
 
 
