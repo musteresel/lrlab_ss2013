@@ -49,13 +49,16 @@ asf-information:
 
 
 
+# Pick specific subfolders from asf root directory where header files meant to
+# be included when using a module should be found. This takes a lot of time,
+# but has the advantage of adopting to new drivers etc (compared to a static
+# list of directories). TODO One could take a mixed approach, i.e. make a
+# static list for the utils directories and a dynamic for the rest.
 ASF_INCLUDE_PATHS := $(shell find $(LOCATION)/./*/boards -maxdepth 1 -type d) \
 	$(shell find $(LOCATION)/./*/drivers -mindepth 1 -maxdepth 1 -type d) \
 	$(shell find $(LOCATION)/./*/components -mindepth 1 -maxdepth 2 -path '*doxygen*' -prune -o -type d -print) \
-	$(shell find $(LOCATION)/./*/utils -maxdepth 1 -type d)
-# Missing: services
-# Untested/unsure utils
-
+	$(shell find $(LOCATION)/./*/utils -mindepth 1 -maxdepth 1 -type d) \
+	$(shell find $(LOCATION)/./*/services -mindepth 1 -maxdepth 2 -type d)
 
 
 
