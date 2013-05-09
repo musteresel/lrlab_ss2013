@@ -49,6 +49,21 @@ asf-information:
 
 
 
+ASF_INCLUDE_PATHS := $(shell find $(LOCATION)/./*/boards -maxdepth 1 -type d) \
+	$(shell find $(LOCATION)/./*/drivers -mindepth 1 -maxdepth 1 -type d) \
+	$(shell find $(LOCATION)/./*/components -mindepth 1 -maxdepth 2 -path '*doxygen*' -prune -o -type d -print) \
+	$(shell find $(LOCATION)/./*/utils -maxdepth 1 -type d)
+# Missing: services
+# Untested/unsure utils
+
+
+
+
+
+# -----------------------------------------------------------------------------
+
+
+
 # Recipe to build the asf library. The resulting (static) library will be
 # placed to the top of the build directory and will be called "asf.a"
 # The rule has no prerequisites defined here, they need to be defined by the
@@ -57,6 +72,8 @@ asf-information:
 asf-lib:
 	@echo "Building asf library with:"
 	@for i in $^;do echo "  * $$i";done
+	@echo "Include paths:"
+	@for p in $(ASF_INCLUDE_PATHS);do echo "  $$p";done
 
 
 
