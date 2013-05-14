@@ -6,7 +6,7 @@
 # TODO handle ../ correctly!
 # TODO delete temporary file even if something fails!
 
-$(BUILDDIR)/autoprereq/%.d: %.c
+$(BUILDDIR)/autoprereq/$(subst ..,UP,%.d): %.c
 	@set -e; \
 		mkdir -p "$(dir $@)"; \
 		rm -f "$@"; \
