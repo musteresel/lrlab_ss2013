@@ -15,4 +15,4 @@ LD := avr32-ld
 CPP := avr32-cpp
 CXX := avr32-cxx
 
-
+BUILDDIR := ./build
