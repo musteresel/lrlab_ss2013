@@ -6,10 +6,12 @@
 
 include make/general.mk
 #include make/asf.mk
-#include make/autoprereq.mk
 
 all:
 	@echo "Built $^"
 
 #include usart_demo/usart_demo.mk
 #...
+include test/test.mk
+
+include make/autoprereq.mk
