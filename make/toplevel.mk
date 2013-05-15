@@ -1,4 +1,4 @@
-# Toplevel makefile
+# Actual toplevel makefile code
 # * Grabs general options
 # * Includes util makefiles
 # * Handles all target
