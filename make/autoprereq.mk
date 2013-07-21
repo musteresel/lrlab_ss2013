@@ -5,3 +5,7 @@
 	$(CC) $(CPPFLAGS) $(CFLAGS) -MD -c -o $@ $<
 # TODO sed magic!
 
+%.a:
+	mkdir -p $(dir $@)
+	$(AR) rcs $@ $^
+
